@@ -10,6 +10,8 @@ import { FaceSnap } from "./models/face-snap";
 })
 export class AppComponent {
   mySnap!: FaceSnap;
+  midwaySnap!: FaceSnap;
+  oldSnap!: FaceSnap;
   ngOnInit():void{
     this.mySnap = new FaceSnap(
       'Archibald',
@@ -17,6 +19,22 @@ export class AppComponent {
       new Date(),
       6,
       'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'
+    ),
+    this.midwaySnap=  new FaceSnap(
+      'new-York',
+      'new york city on tne night',
+      new Date(),
+      130,
+      'https://images.pexels.com/photos/32369819/pexels-photo-32369819/free-photo-of-sentiers-de-feux-de-circulation-nocturnes-dynamiques-de-la-ville-de-new-york.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    ),
+    this.oldSnap=  new FaceSnap(
+      'miami for work',
+      'i love miami',
+      new Date(),
+      100,
+      'https://images.pexels.com/photos/4118101/pexels-photo-4118101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     )
+    this.midwaySnap.setLocation('new-york');
+    this.oldSnap.setLocation('miami');
   }
 }
