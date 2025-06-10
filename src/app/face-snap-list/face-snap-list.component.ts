@@ -16,8 +16,7 @@ export class FaceSnapListComponent {
   ngOnInit():void{
     
       this.allSnap = this.faceSnapService.getFaceSnaps();
-      this.allSnap[1].setLocation('new-york');
-      this.allSnap[2].setLocation('miami');
+      
     }
     
   }
