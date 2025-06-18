@@ -1,56 +1,21 @@
 import { Input,Component, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
-import { DatePipe, NgClass, NgStyle, UpperCasePipe, DecimalPipe, PercentPipe, CurrencyPipe } from '@angular/common';
-import { FaceSnapService } from '../services/face-snap.service';
+import { UpperCasePipe} from '@angular/common';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-face-snap',
   imports: [
-    NgStyle,
-    NgClass,
     UpperCasePipe,
-    DatePipe,
-    DecimalPipe,
-    PercentPipe,
-    CurrencyPipe
   ],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
 })
-export class FaceSnapComponent implements OnInit{
+export class FaceSnapComponent {
   @Input() faceSnap!:FaceSnap;
-// title!:string;
-// description!:string;
-// createdAt!:Date;
-// snaps!:number;
-// ImageUrl!:string;
-isSnap!:boolean;
-textButton!:string;
-constructor(private faceSnapService: FaceSnapService){}
-ngOnInit(): void {
-  // this.title = 'Archibald';
-  // this.description = 'Mon meilleur ami depuis tout petit !';
-  // this.createdAt = new Date();
-  // this.snaps = 6;
-  // this.ImageUrl = 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg';
-  this.isSnap = false;
-  this.textButton = 'Oh Snap!';
-}
-onAddSnap(){
-  if(this.isSnap){
-    this.unSnap();
-  }else{
-    this.snap();
-    
-  } 
-}
-unSnap(){
-  this.faceSnapService.snapFaceSnapById(this.faceSnap.id,'unSnap');
-    this.isSnap = false;
-    this.textButton = 'Oh Snap!';
-}
-snap(){
-  this.faceSnapService.snapFaceSnapById(this.faceSnap.id,'snap');
-    this.isSnap = true;
-    this.textButton = 'Oops, unSnap!';
+
+constructor(private router: Router){}
+onViewFaceSnap(){
+this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`)
 }
 }
