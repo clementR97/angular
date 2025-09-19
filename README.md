@@ -1,60 +1,72 @@
-# Snapface
+# 📸 Snapface - Angular Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+Snapface is a learning project built with **Angular** to practice and master the core concepts of modern web development.  
+The goal is to create an application where users can view and interact with "snaps" (posts with images, text, and likes).
 
-## Development server
+---
 
-To start a local development server, run:
+## 📌 Features
+
+- Structure the app with **pages and components**  
+- Use **Angular Control Flow** (`@if`, `@for`, etc.) for dynamic rendering  
+- Modify how data is displayed with **Pipes** (date, uppercase, custom pipes, etc.)  
+- Improve app structure with **Services** (data management, business logic)  
+- Implement **Routing** for navigation between pages  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Angular** (latest version)  
+- **TypeScript**  
+- **RxJS**  
+- **HTML / CSS**  
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
 
 ```bash
+git clone https://github.com/clementR97/angular.git
+cd snapface
+npm install
 ng serve
 ```
+The app will be available at 👉 http://localhost:4200
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Key Angular Concepts Used
 
-## Code scaffolding
+✅ Components
+Split the UI into reusable components (SnapListComponent, SnapCardComponent, etc.).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+✅ Control Flow
+Use Angular structural directives like @for, @if, and @else to display lists and conditionally render content.
 
+✅ Pipes
+Built-in pipes: date, uppercase, slice...
+Custom pipes to format snap data (e.g., likes count).
+
+✅ Services
+Centralized data management with Angular services.
+Example: SnapService provides snaps and manages likes.
+
+✅ Routing
+Use RouterModule to navigate between pages (Home, Snap Details, etc.).
+Dynamic routes: snaps/:id
+
+
+## 📖 Example
 ```bash
-ng generate component component-name
+Snap Model (TypeScript)
+export interface Snap {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  createdAt: Date;
+  snaps: number;
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# angular
